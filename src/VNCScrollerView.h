@@ -60,7 +60,7 @@ typedef enum {
 	VNCMouseTracks * _windowPopupMouseDown;
 	VNCMouseTracks * _windowPopupMouseUp;
 	AutoScrollerTypes _currentAutoScrollerType;
-	GSEventRef _autoLastDragEvent;
+	UIEvent * _autoLastDragEvent;
 	bool _bZoomedIn;
 	float _preDoubleClickZoom;
 }
@@ -78,13 +78,13 @@ typedef enum {
 
 - (void)changeViewPinnedToPoint:(CGPoint)ptPinned scale:(float)fScale orientation:(UIHardwareOrientation)wOrientationState force:(BOOL)bForce;
 - (CGPoint)getIPodScreenPoint:(CGRect)r bounds:(CGRect)bounds;
-- (void)checkForAutoscrollEvents:(GSEventRef) theEvent;
+- (void)checkForAutoscrollEvents:(UIEvent *) theEvent;
 
 - (bool)useRightMouse;
 - (void)setUseRightMouse:(bool)useRight;
 
-- (void)sendMouseDown:(GSEventRef)theEvent;
-- (void)sendMouseUp:(GSEventRef)theEvent;
+- (void)sendMouseDown:(UIEvent *)theEvent;
+- (void)sendMouseUp:(UIEvent *)theEvent;
 
 // function called when mouse is dragging near any edge
 - (void)handleScrollTimer:(NSTimer *)timer;

@@ -33,3 +33,5 @@ x modified keys don't work on windows with free RealVNC
 - clean up bools; pick one or the other of BOOl/bool and stick with it
 
 - refactor the VNCView hierarchy to make better/proper use of delegation and code modularity
+
+- create a view subclass for the controls bar

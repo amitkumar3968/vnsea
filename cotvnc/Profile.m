@@ -140,8 +140,8 @@ ButtonNumberToArrayIndex( unsigned int buttonNumber )
 - (id)initWithDictionary:(NSDictionary*)d name: (NSString *)name
 {
     if (self = [super init]) {
-		NSArray* enc;
-		int i;
+//		NSArray* enc;
+//		int i;
 
 		info = [[d deepMutableCopy] retain];
 		[info setObject: name forKey: @"ProfileName"];

@@ -55,7 +55,7 @@
 
 - (void)setText:(NSString*)aText
 {
-	NSLog(@"Set text: %s", [aText cString]);
+	NSLog(@"Set text: %s", [aText UTF8String]);
 
 /*
     NSPasteboard* pb = [NSPasteboard generalPasteboard];

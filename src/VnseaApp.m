@@ -781,22 +781,6 @@ int compareServers(id obj1, id obj2, void *reverse)
 	[_transView transition:2 fromView:_serverEditorView toView:_serversView];
 }
 
-- (NSDictionary *)defaultServerInfo
-{
-	NSMutableDictionary * info = [NSMutableDictionary dictionary];
-	
-	[info setObject:@"" forKey:RFB_NAME];
-	[info setObject:@"" forKey:RFB_HOSTANDPORT];
-	[info setObject:@"" forKey:RFB_PASSWORD];
-	[info setObject:[NSNumber numberWithBool:YES] forKey:RFB_REMEMBER];
-	[info setObject:[NSNumber numberWithInt:0] forKey:RFB_DISPLAY];
-	[info setObject:@"Default" forKey:RFB_LAST_PROFILE];
-	[info setObject:[NSNumber numberWithBool:NO] forKey:RFB_SHARED];
-	[info setObject:[NSNumber numberWithInt:16] forKey:RFB_PIXEL_DEPTH];
-	[info setObject:[NSNumber numberWithBool:NO] forKey:RFB_FULLSCREEN];
-	[info setObject:[NSNumber numberWithBool:NO] forKey:RFB_VIEWONLY];
-	return info;
-}
 
 - (void)deviceOrientationChanged:(GSEvent *)event
 {

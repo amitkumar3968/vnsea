@@ -1220,7 +1220,7 @@
 	return NO;
 }
 
-- (BOOL)interceptKeyEvent:(GSEventRef)theEvent
+- (BOOL)interceptKeyEvent:(UIEvent *)theEvent
 {
 //	NSLog(@"%s", __PRETTY_FUNCTION__);
 	

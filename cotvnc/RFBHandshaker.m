@@ -159,7 +159,7 @@
     unsigned char bytes[CHALLENGESIZE];
 
     [theChallenge getBytes:bytes length:CHALLENGESIZE];
-    vncEncryptBytes(bytes, (char*)[[target password] cString]);
+    vncEncryptBytes(bytes, (char*)[[target password] UTF8String]);
     [target writeBytes:bytes length:CHALLENGESIZE];
     [target setReader:authResultReader];
 }

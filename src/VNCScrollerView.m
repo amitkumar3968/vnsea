@@ -66,7 +66,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 	return YES;
 }
 
-- (void)sendMouseDown:(GSEventRef)theEvent
+- (void)sendMouseDown:(UIEvent *)theEvent
 {
 	if (_useRightMouse)
 	{
@@ -81,7 +81,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 	}
 }
 
-- (void)sendMouseUp:(GSEventRef)theEvent
+- (void)sendMouseUp:(UIEvent *)theEvent
 {
 	// Need to send the corresponding mouse up, regardless the current
 	// use right mouse state.
@@ -163,7 +163,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 	_inRemoteAction = true;
 	
 	// Send the original event.
-	GSEventRef theEvent = (GSEventRef)[timer userInfo];
+	UIEvent * theEvent = (UIEvent *)[timer userInfo];
 //	NSLog(@"tapTimer:%@", theEvent);
 	
 	[self sendMouseDown:theEvent];
@@ -189,7 +189,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 	_tapTimer = nil;
 }
 
-- (void)mouseDown:(GSEventRef)theEvent
+- (void)mouseDown:(UIEvent *)theEvent
 {
 	// Do nothing if there is no connection.
 	if (!_eventFilter)
@@ -303,7 +303,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 	return [_vncView getIPodScreenPoint: r bounds: bounds];
 }
 
-- (void)mouseUp:(GSEventRef)theEvent
+- (void)mouseUp:(UIEvent *)theEvent
 {
 	// Do nothing if there is no connection.
 	if (_windowPopupScalePercent != nil)
@@ -407,7 +407,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 
 //! Determines if we need to autoscroll while dragging. If so, then it
 //! sets up the autoscroll timer.
-- (void)checkForAutoscrollEvents:(GSEventRef) theEvent
+- (void)checkForAutoscrollEvents:(UIEvent *) theEvent
 {
 	CGPoint ptDrag = GSEventGetLocationInWindow(theEvent).origin;
 	CGRect rcFrame = [self frame];
@@ -457,7 +457,7 @@ extern CGPoint UIMidPointBetweenPoints(CGPoint a, CGPoint b);
 	}
 }
 
-- (void)mouseDragged:(GSEventRef)theEvent
+- (void)mouseDragged:(UIEvent *)theEvent
 {
 	// Do nothing if there is no connection.
 	if (!_eventFilter)

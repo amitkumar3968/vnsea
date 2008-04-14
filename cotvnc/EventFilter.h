@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GraphicsServices/GraphicsServices.h>
 
 @class RFBConnection;
 
@@ -148,24 +147,24 @@ typedef enum {
 - (void)setView: (UIView *)view;
 - (void)setBackToVNCTransform: (CGAffineTransform)matrix;
 - (CGAffineTransform) backToVNCTransform;
-- (void)setOrientation: (UIHardwareOrientation) wState;
+- (void)setOrientation: (UIDeviceOrientation) wState;
 - (CGPoint)getVNCScreenPoint: (CGRect)r;
 
 - (unsigned int)pressedButtons;
 - (unsigned int)pressedModifiers;
 
 // Local Mouse Events
-- (void)mouseDown: (GSEventRef)theEvent;
-- (void)mouseUp: (GSEventRef)theEvent;
-- (void)rightMouseDown: (GSEventRef)theEvent;
-- (void)rightMouseUp: (GSEventRef)theEvent;
-- (void)otherMouseDown: (GSEventRef)theEvent;
-- (void)otherMouseUp: (GSEventRef)theEvent;
-- (void)scrollWheel: (GSEventRef)theEvent;
-- (void)mouseMoved:(GSEventRef)theEvent;
-- (void)mouseDragged:(GSEventRef)theEvent;
-- (void)rightMouseDragged:(GSEventRef)theEvent;
-- (void)otherMouseDragged:(GSEventRef)theEvent;
+- (void)mouseDown: (UIEvent *)theEvent;
+- (void)mouseUp: (UIEvent *)theEvent;
+- (void)rightMouseDown: (UIEvent *)theEvent;
+- (void)rightMouseUp: (UIEvent *)theEvent;
+- (void)otherMouseDown: (UIEvent *)theEvent;
+- (void)otherMouseUp: (UIEvent *)theEvent;
+- (void)scrollWheel: (UIEvent *)theEvent;
+- (void)mouseMoved:(UIEvent *)theEvent;
+- (void)mouseDragged:(UIEvent *)theEvent;
+- (void)rightMouseDragged:(UIEvent *)theEvent;
+- (void)otherMouseDragged:(UIEvent *)theEvent;
 - (void)sendUnpublishedMouseMove;
 - (void)clearUnpublishedMouseMove;
 
@@ -175,8 +174,8 @@ typedef enum {
 
 // Synthesized Events
 - (void)clearAllEmulationStates;
-- (void)queueMouseDownEventFromEvent: (GSEventRef)theEvent buttonNumber: (unsigned int)button;
-- (void)queueMouseUpEventFromEvent: (GSEventRef)theEvent buttonNumber: (unsigned int)button;
+- (void)queueMouseDownEventFromEvent: (UIEvent *)theEvent buttonNumber: (unsigned int)button;
+- (void)queueMouseUpEventFromEvent: (UIEvent *)theEvent buttonNumber: (unsigned int)button;
 - (void)queueModifierPressed: (unsigned int)modifier timestamp: (NSTimeInterval)timestamp;
 - (void)queueModifierReleased: (unsigned int)modifier timestamp: (NSTimeInterval)timestamp;
 - (void)pasteString: (NSString *)string;
